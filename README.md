@@ -1,5 +1,22 @@
 # go-chatstream
 
+## Maintenance moved to `github.com/hollis-labs/libs/ui-go`
+
+This standalone repository is retired. Maintained source and documentation are
+in [github.com/hollis-labs/libs/ui-go/chatstream](https://github.com/hollis-labs/libs/tree/ui-go%2Fv0.1.0/ui-go/chatstream), released in **`ui-go/v0.1.0`**.
+Install the replacement module:
+
+```sh
+go get github.com/hollis-labs/libs/ui-go@v0.1.0
+```
+
+Replace the `github.com/hollis-labs/go-chatstream` import prefix with
+`github.com/hollis-labs/libs/ui-go/chatstream`, retaining the package subpath. Review the replacement documentation
+for any API changes before migrating. Existing standalone tags and history remain
+available; old module pins do not automatically redirect to the new module.
+
+The documentation below describes historical standalone usage.
+
 One canonical chat-stream event vocabulary with per-dialect decoders, per-target encoders, a reducer and a conformance kit.
 
 Providers and protocols stream differently: Anthropic Messages and OpenAI Chat and Responses over SSE, ACP over JSON-RPC lines, the Claude and Codex CLIs over JSON lines, AG-UI and the AI SDK's UI stream toward browsers. This module standardizes the seams, not a dialect: a `Decoder` per dialect produces `Event`s, an `Encoder` per target consumes them, `Reduce` folds them into a `Message`, and the conformance kit ships with all of it.
